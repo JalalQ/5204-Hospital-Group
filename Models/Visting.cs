@@ -12,16 +12,16 @@ namespace Simran_hospital.Models
         [Key]
         public int DepartmentID { get; set; }
         public string DepartmentName { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
         public string Description { get; set; }
     }
     public class VisitingDto
     {
         public int DepartmentID { get; set; }
         public string DepartmentName { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
         public string Description { get; set; }
     }
 }

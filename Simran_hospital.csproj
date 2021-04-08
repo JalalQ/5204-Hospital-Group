@@ -183,6 +183,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\VisitingController.cs" />
+    <Compile Include="Controllers\VistingDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,6 +195,10 @@
     <Compile Include="Migrations\202103251114166_volunteer_opp.cs" />
     <Compile Include="Migrations\202103251114166_volunteer_opp.designer.cs">
       <DependentUpon>202103251114166_volunteer_opp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104071743031_time_snap.cs" />
+    <Compile Include="Migrations\202104071743031_time_snap.Designer.cs">
+      <DependentUpon>202104071743031_time_snap.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -263,6 +269,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Visiting\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -283,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103251114166_volunteer_opp.resx">
       <DependentUpon>202103251114166_volunteer_opp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104071743031_time_snap.resx">
+      <DependentUpon>202104071743031_time_snap.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
