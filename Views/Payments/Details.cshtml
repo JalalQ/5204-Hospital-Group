@@ -1,0 +1,82 @@
+﻿@model News_Events_Payments.Models.Payments
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Payments</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient_firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient_firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient_lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient_lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment_amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment_amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bill_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bill_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Card_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Card_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Card_csv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Card_csv)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Payment_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

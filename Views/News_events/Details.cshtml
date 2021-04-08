@@ -1,0 +1,42 @@
+﻿@model News_Events_Payments.Models.News_events
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>News_events</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.News_events_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.News_events_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.News_events_content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.News_events_content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_published)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_published)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.News_events_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
