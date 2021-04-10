@@ -1,6 +1,12 @@
 # Hospital-Project
 
-## Team Members: Jemi Choi, Sasha Srinivas, Simranjeet Singh, Navpreet Kaur, jalaluddin qureshi, Nastaran Azani 
+## Team Members:
+jalaluddin qureshi  
+Jemi Choi  
+Sasha Srinivas   
+Navpreet Kaur  
+Nastaran Azani  
+Simranjeet Singh   
 
 
 ===============================================
