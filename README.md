@@ -21,7 +21,7 @@ I have worked on the volunteer , department and opportunity table including mode
 
 ===============================================
 ### Navpreet Kaur
-Responsible for: Job Posting and Hospital Staff Directory feature
+Responsible for: Job Posting and Hospital Staff Directory feature.  
 Branch Location: https://github.com/sasha-s-07/Hospital-Project/tree/Jobposting_and_staff
 Learnings: I am working on Job Posting feature and Hospital Staff Directory feature where Admin can create, read, update and delete job posts and hospital staff information but user can only read the information. I have submitted my models, mvc controllers, web api controllers and views working properly.
 
