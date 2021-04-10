@@ -1,7 +1,7 @@
 # Hospital-Project
 
 ## Team Members: 
-Jemi Choi
+
 
 ================================================
 Jemi Choi:  
