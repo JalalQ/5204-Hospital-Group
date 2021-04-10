@@ -4,7 +4,7 @@
 
 1.Models: I creaated 2 Models:client and appointment to book an appointment 
 (There are 2 fields in appointment table that should be foreign key but there isn't connection to the tables)
-2.I created hospitaldb context and  set connection string that called Hospital. 
+2.I created hospitaldb context and  set connection string that called Hospital.  
 3.Database and tabels were created based on Models. The database is hospitalDb
 4.There were some problems to create data base and tables that were fixed.
 4.In next step, I created api contoroller to do add,delet,list... .(appointmentData)
