@@ -1,7 +1,7 @@
 # Hospital-Project
 
 ## Team Members:
-jalaluddin qureshi  
+Jalaluddin qureshi  
 Jemi Choi  
 Sasha Srinivas   
 Navpreet Kaur  
