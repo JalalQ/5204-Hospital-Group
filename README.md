@@ -1,6 +1,6 @@
 # Hospital-Project
 
-## Team Members: 
+## Team Members: Jemi Choi, Sasha Srinivas, Simranjeet Singh, Navpreet Kaur, Jalal 
 
 
 ===============================================
@@ -12,10 +12,15 @@ I am responsible for the donors and donation entities. Unfortunately, at this po
 Reference: Christine Bittle's Varsity MVP, Blog project  
 
 ===============================================
-## Sasha Srinivas - I have worked on the news/events feature and the payments feature. I have submitted my models, controllers and data controllers and am able to get CRUD working through my Views. My work is located in the news_events_payments branch. 
+### Sasha Srinivas 
+I have worked on the news/events feature and the payments feature. I have submitted my models, controllers and data controllers and am able to get CRUD working through my Views. My work is located in the news_events_payments branch. 
 
 ===============================================  
-## Simranjeet Singh - I have worked on the volunteer , department and opportunity table including models, controllers and datacontollers.My work is in volunteer_department branch
+### Simranjeet Singh 
+I have worked on the volunteer , department and opportunity table including models, controllers and datacontollers.My work is in volunteer_department branch
 
 ===============================================
-## Navpreet Kaur
+### Navpreet Kaur
+Responsible for: Job Posting and Hospital Staff Directory feature
+Branch Location: https://github.com/sasha-s-07/Hospital-Project/tree/Jobposting_and_staff
+
