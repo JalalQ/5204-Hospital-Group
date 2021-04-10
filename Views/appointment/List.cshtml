@@ -1,0 +1,58 @@
+﻿@model IEnumerable<hospitalPrj.Models.appointmentDto>
+
+@{
+    ViewBag.Title ="List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.client.clientName)
+            <a href="~/Models/appointment.cs">~/Models/appointment.cs</a>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bookDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bookReason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.drName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.department)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.client.clientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bookDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bookReason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.drName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department)
+        </td>
+        <td>
+          
+            @Html.ActionLink("Details", "Details", new { id=item.bookId }) 
+           
+        </td>
+    </tr>
+}
+
+</table>
