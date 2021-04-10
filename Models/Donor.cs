@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.ComponentModel;
+using System.ComponentModel; //reference to primary and foreign keys
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeraldtonHospital_v1.Models
-{
+{   
+    //information to be displayed for Donor
     public class Donor
     { 
     //[Key]
@@ -19,6 +20,7 @@ namespace GeraldtonHospital_v1.Models
     public string Address { get; set; }
     public string City { get; set; }
     public string Province { get; set; }
+    public string Country { get; set; }
     public string PostalCode { get; set; }
     public string DonorMessage { get; set; }
 
@@ -43,6 +45,8 @@ namespace GeraldtonHospital_v1.Models
         [DisplayName("Province")]
         public string Province { get; set; }
         [DisplayName("Postal Code")]
+        public string Country { get; set; }
+        [DisplayName("Country")]
         public string PostalCode { get; set; }
         [DisplayName("Message")]
         public string DonorMessage { get; set; }

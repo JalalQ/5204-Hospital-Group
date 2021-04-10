@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GeraldtonHospital_v1.Models.DonorDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Donors</h2>
+
+<div>
+    <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Create New", "Create")</button>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover ">
+        <tr>
+            <th class="col-3">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th class="col-3">
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th class="col-3">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <!--need to add the amount-->
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                   @*<button type="button" class="btn btn-secondary ">@Html.ActionLink("Edit", "Edit", new { id = item.DonorID }) </button>
+                    <button type="button" class="btn btn-secondary ">@Html.ActionLink("Details", "Details", new { id = item.DonorID })</button>
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Delete", "DeleteConfirm", new { id = item.ResourceID })</button>*@
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

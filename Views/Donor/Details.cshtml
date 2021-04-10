@@ -1,0 +1,68 @@
+﻿@model IEnumerable<GeraldtonHospital_v1.Models.ViewModels.ShowDonor>
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Donor Details</h2>
+<div>
+    <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Create New", "Create")</button>
+</div>
+
+
+<h2>Donor: @Model Firstname + " " + Donor.LastName</h2>
+<button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Back to List", "List")</button>
+<div style="overflow:hidden;">
+    <div style="float:left; margin-right:2%; width:49%">
+
+        <div class="dl-horizontal">
+           
+            <dt>
+                @Html.DisplayNameFor(model => model.Donor.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Donor.Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Donor.Address)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Donor.Address)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Donor.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Donor.City)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Donor.Province)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Donor.Province)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Donor.Country)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Donor.Country)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Donor.PostalCode)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Donor.PostalCode)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Donor.DonorMessage)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Donor.DonorMessage)
+            </dd>
+
+           
+        </div>
+    <div>@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.Donor.DonorID })
+    </div>
+</div>
+

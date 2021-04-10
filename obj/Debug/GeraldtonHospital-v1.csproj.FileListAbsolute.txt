@@ -1,3 +1,7 @@
+C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital_v1.Migrations.DonorTable.resources
+C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital-v1.csproj.GenerateResource.cache
+C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital-v1.csproj.CoreCompileInputs.cache
+C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital-v1.csprojAssemblyReference.cache
 C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\bin\GeraldtonHospital-v1.dll.config
 C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\bin\GeraldtonHospital-v1.dll
 C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\bin\GeraldtonHospital-v1.pdb
@@ -86,10 +90,7 @@ C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\bin\System
 C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital-v1.csprojAssemblyReference.cache
-C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital-v1.csproj.CoreCompileInputs.cache
 C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital-v1.csproj.CopyComplete
 C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital-v1.dll
 C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital-v1.pdb
-C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital_v1.Migrations.DonorTable.resources
-C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital-v1.csproj.GenerateResource.cache
+C:\Users\jemic\source\repos\GeraldtonHospital-v1\GeraldtonHospital-v1\obj\Debug\GeraldtonHospital_v1.Migrations.addmigrationDtos.resources
