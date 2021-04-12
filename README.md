@@ -31,3 +31,10 @@ Responsible for: Job Posting and Hospital Staff Directory feature.
 Branch Location: https://github.com/sasha-s-07/Hospital-Project/tree/Jobposting_and_staff      
 Learnings: I am working on Job Posting feature and Hospital Staff Directory feature where Admin can create, read, update and delete job posts and hospital staff information but user can only read the information. I have submitted my models, mvc controllers, web api controllers and views working properly.
 
+===============================================
+### Jalaluddin Qureshi
+Feature: Doctor CRUD
+Branch Location: https://github.com/sasha-s-07/Hospital-Project/tree/DoctorCRUD
+Learnings: My major learning has been to WebAPI and ViewModels for this project. In the Passion Project I had used the MVC controller (auto-scaffolding approach). Due to this, there had been a large learning curve for me for this project.
+Right Now I have got the List, Detail and Create working. I have also implemented Pagination feature on the List View.
+Over the next coming days and weeks, I would be expanding on my work.
