@@ -45,10 +45,7 @@ Right Now I have got the List, Detail and Create working. I have also implemente
 
 Book appointment,Login
 
-Branch Location:
-
-
-
+Branch Location:https://github.com/sasha-s-07/Hospital-Project/tree/login_appointment2
 
 -Models: I creaated 2 Models:client and appointment to book an appointment
 
