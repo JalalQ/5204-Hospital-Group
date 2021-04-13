@@ -9,6 +9,7 @@ namespace hospitalPrj.Models
 {
     public class appointment
     {
+        // a change
         [Key]
         public int bookId { get; set; }
         public DateTime bookDate { get; set; }
