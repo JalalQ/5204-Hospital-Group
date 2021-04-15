@@ -21,15 +21,19 @@ namespace team2Geraldton.Models
     public class team2GeraldtonDbContext : IdentityDbContext<ApplicationUser>
     {
         public team2GeraldtonDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+
+            : base("team2GeraldtonDbContextwAuth", throwIfV1Schema: false)
         {
         }
-        //Instruction to set the models as tables in our database.
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<Staff> Staffs { get; set; }
+
         public static team2GeraldtonDbContext Create()
         {
             return new team2GeraldtonDbContext();
         }
+        //Instruction to set the models as tables in our database.
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
+        public DbSet<doctor> doctors { get; set; }
+
     }
 }
