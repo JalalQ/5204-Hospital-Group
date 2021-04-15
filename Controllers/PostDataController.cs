@@ -21,7 +21,7 @@ namespace team2Geraldton.Controllers
         private team2GeraldtonDbContext db = new team2GeraldtonDbContext();
 
         /// <summary>
-        /// Gets a list or Posts in the database alongside a status code (200 OK).
+        /// Gets a list of Posts in the database alongside a status code (200 OK).
         /// </summary>
         /// <returns>A list of Posts including their ID, title, type, and description.</returns>
         /// <example>
