@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using team2Geraldton.Models;
+using team2Geraldton.Models.ViewModels;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Diagnostics;
@@ -57,6 +58,8 @@ namespace team2Geraldton.Controllers
         // GET: Staff/Details/5
         public ActionResult Details(int id)
         {
+
+            ShowStaff ViewModel = new ShowStaff();
             string url = "Staffdata/findStaff/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
@@ -64,10 +67,16 @@ namespace team2Geraldton.Controllers
             //Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                Debug.WriteLine("hello");
-                //Put data into staff data transfer object
                 StaffDto SelectedStaff = response.Content.ReadAsAsync<StaffDto>().Result;
-                return View(SelectedStaff);
+                ViewModel.staff = SelectedStaff;
+
+
+                url = "staffdata/finddepartmentforstaff/" + id;
+                response = client.GetAsync(url).Result;
+                DepartmentDto SelectedDepartment = response.Content.ReadAsAsync<DepartmentDto>().Result;
+                ViewModel.department = SelectedDepartment;
+
+                return View(ViewModel);
             }
             else
             {
@@ -77,9 +86,12 @@ namespace team2Geraldton.Controllers
 
 
 
+
         //GET: Staff/Edit/2
         public ActionResult Edit(int id)
         {
+            UpdateStaff ViewModel = new UpdateStaff();
+
             string url = "Staffdata/findStaff/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             //Can catch the status code (200 OK, 301 REDIRECT), etc.
@@ -88,7 +100,15 @@ namespace team2Geraldton.Controllers
             {
                 //Put data into Staff data transfer object
                 StaffDto SelectedStaff = response.Content.ReadAsAsync<StaffDto>().Result;
-                return View(SelectedStaff);
+                ViewModel.staff = SelectedStaff;
+
+                //get information about teams this player COULD play for.
+                url = "departmentdata/getdepartmentss";
+                response = client.GetAsync(url).Result;
+                IEnumerable<DepartmentDto> PotentialDepartments = response.Content.ReadAsAsync<IEnumerable<DepartmentDto>>().Result;
+                ViewModel.alldepartments = PotentialDepartments;
+
+                return View(ViewModel);
             }
             else
             {
@@ -121,36 +141,47 @@ namespace team2Geraldton.Controllers
 
 
 
-        // GET: Staff/Create
+        // GET: Player/Create
+        // only administrators get to this page
+        //[Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            return View();
+            UpdateStaff ViewModel = new UpdateStaff();
+            //get information about teams this player COULD play for.
+            string url = "departmentdata/getdepartments";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            IEnumerable<DepartmentDto> PotentialDepartments = response.Content.ReadAsAsync<IEnumerable<DepartmentDto>>().Result;
+            ViewModel.alldepartments = PotentialDepartments;
+
+            return View(ViewModel);
         }
 
-        // POST: Staff/Create
+        // POST: Player/Create
         [HttpPost]
         [ValidateAntiForgeryToken()]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Create(Staff StaffInfo)
         {
+            //pass along authentication credential in http request
+            //GetApplicationCookie();
+
             Debug.WriteLine(StaffInfo.FirstName);
-            string url = "Staffdata/addStaff";
             Debug.WriteLine(jss.Serialize(StaffInfo));
+            string url = "staffdata/addstaff";
             HttpContent content = new StringContent(jss.Serialize(StaffInfo));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = client.PostAsync(url, content).Result;
 
             if (response.IsSuccessStatusCode)
             {
-                int Staffid = response.Content.ReadAsAsync<int>().Result;
-                return RedirectToAction("Details", new { id = Staffid });
+                int StaffId = response.Content.ReadAsAsync<int>().Result;
+                return RedirectToAction("Details", new { id = StaffId });
             }
             else
             {
                 return RedirectToAction("Error");
             }
         }
-
-
 
         // GET: Staff/Delete/5
         [HttpGet]

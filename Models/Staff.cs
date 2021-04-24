@@ -19,6 +19,12 @@ namespace team2Geraldton.Models
         public string Email { get; set; }
         public string Contact { get; set; }
         public string Position { get; set; }
+
+
+        //A staff member can belong to 1 department
+        [ForeignKey("Department")]
+        public int DepartmentId { get; set; }
+        public Department Department { get; set; }
     }
     public class StaffDto
     {
@@ -33,6 +39,8 @@ namespace team2Geraldton.Models
         public string Contact { get; set; }
         [DisplayName("Position")]
         public string Position { get; set; }
+        [DisplayName("Department")]
+        public int DepartmentId { get; set; }
 
     }
 

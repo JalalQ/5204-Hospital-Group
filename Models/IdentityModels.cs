@@ -27,6 +27,7 @@ namespace team2Geraldton.Models
         //Instruction to set the models as tables in our database.
         public DbSet<Post> Posts { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Department> Departments { get; set; }
         public static team2GeraldtonDbContext Create()
         {
             return new team2GeraldtonDbContext();

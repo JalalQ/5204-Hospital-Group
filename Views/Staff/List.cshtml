@@ -1,4 +1,4 @@
-﻿@model IEnumerable<team2Geraldton.Models.StaffDto>
+﻿@model team2Geraldton.Models.ViewModels.ListStaffs
 
 @{
     ViewBag.Title = "List";
@@ -12,24 +12,24 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.staffs.FirstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.staffs.LastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.staffs.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Contact)
+            @Html.DisplayNameFor(model => model.staffs.Contact)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Position)
+            @Html.DisplayNameFor(model => model.staffs.Position)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.staffs) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)

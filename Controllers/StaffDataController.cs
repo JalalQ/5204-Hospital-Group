@@ -43,13 +43,54 @@ namespace team2Geraldton.Controllers
                     LastName = Staff.LastName,
                     Email = Staff.Email,
                     Contact = Staff.Contact,
-                    Position = Staff.Position
+                    Position = Staff.Position,
+                    DepartmentId = Staff.DepartmentId
                 };
                 StaffDtos.Add(NewStaff);
             }
             return Ok(StaffDtos);
         }
 
+
+
+        /// <summary>
+        /// Gets a list or staffs in the database alongside a status code (200 OK). Skips the first {startindex} records and takes {perpage} records.
+        /// </summary>
+        /// <returns>A list of staffs including theirID, firstname,lastname, email, contact, phone and department.</returns>
+        /// <param name="StartIndex">The number of records to skip through</param>
+        /// <param name="PerPage">The number of records for each page</param>
+        /// <example>
+        /// GET: api/StaffData/GetStaffsPage/20/5
+        /// Retrieves the first 5 staff members after skipping 20 (fifth page)
+        /// 
+        /// GET: api/StaffData/GetStaffsPage/15/3
+        /// Retrieves the first 3 staffs after skipping 15 (sixth page)
+        /// 
+        /// </example>
+        [ResponseType(typeof(IEnumerable<StaffDto>))]
+        [Route("api/staffdata/getstaffspage/{StartIndex}/{PerPage}")]
+        public IHttpActionResult GetStaffsPage(int StartIndex, int PerPage)
+        {
+            List<Staff> Staffs = db.Staffs.OrderBy(p => p.StaffId).Skip(StartIndex).Take(PerPage).ToList();
+            List<StaffDto> StaffDtos = new List<StaffDto> { };
+
+            //Here you can choose which information is exposed to the API
+            foreach (var Staff in Staffs)
+            {
+                StaffDto NewStaff = new StaffDto
+                {
+                    StaffId = Staff.StaffId,
+                    FirstName = Staff.FirstName,
+                    LastName = Staff.LastName,
+                    Email = Staff.Email,
+                    Contact = Staff.Contact,
+                    Position = Staff.Position,
+                    DepartmentId = Staff.DepartmentId
+                };
+                StaffDtos.Add(NewStaff);
+            }
+            return Ok(StaffDtos);
+        }
 
         /// <summary>
         /// Finds a particular Staff in the database with a 200 status code. If the Staff is not found, return 404.
@@ -79,11 +120,49 @@ namespace team2Geraldton.Controllers
                 LastName = Staff.LastName,
                 Email = Staff.Email,
                 Contact = Staff.Contact,
-                Position = Staff.Position
+                Position = Staff.Position,
+                DepartmentId = Staff.DepartmentId
             };
             //pass along data as 200 status code OK response
             return Ok(StaffDto);
         }
+
+
+        /// <summary>
+        /// Finds a particular Department in the database given a staff id with a 200 status code. If the Department is not found, return 404.
+        /// </summary>
+        /// <param name="id">TheStaff id</param>
+        /// <returns>Information about the Department, including id and name</returns>
+        // <example>
+        // GET: api/StaffData/FindDepartmentForStaff/5
+        // </example>
+        [HttpGet]
+        [ResponseType(typeof(DepartmentDto))]
+        public IHttpActionResult FindDepartmentForStaff(int id)
+        {
+            //Finds the first Department which has any staff members
+            //that match the input staffid
+            Department Department = db.Departments
+                .Where(t => t.Staffs.Any(p => p.StaffId == id))
+                .FirstOrDefault();
+            //if not found, return 404 status code.
+            if (Department == null)
+            {
+                return NotFound();
+            }
+
+            //put into a 'friendly object format'
+            DepartmentDto DepartmentDto = new DepartmentDto
+            {
+                DepartmentId = Department.DepartmentId,
+                DepartmentName = Department.DepartmentName
+            };
+
+
+            //pass along data as 200 status code OK response
+            return Ok(DepartmentDto);
+        }
+
 
 
 
@@ -165,6 +244,7 @@ namespace team2Geraldton.Controllers
         /// POST: api/StaffData/DeleteStaff/2
         /// </example>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteStaff(int id)
         {
             Staff Staff = db.Staffs.Find(id);
