@@ -12,7 +12,8 @@ Simranjeet Singh
 ===============================================
 ### Jemi Choi:  
 Responsible for: Donation and Donor Entities  
-Branch location:  https://github.com/sasha-s-07/Hospital-Project/tree/donation    
+Rebuilt project at: 
+Branch location: https://github.com/sasha-s-07/Hospital-Project/tree/donationv4
 Learnings:  
 I am responsible for the donors and donation entities. Unfortunately, at this point in time, I have not gotten the Views to work fully yet.  I  will continue to work through the bugs that keep popping up. For every project I have done so far, new types of bugs seem to appear. They are endless in variety. And this time around, I am keeping a log of the different bugs with solution so that I can reference them if I encounter them again.     
 Reference: Christine Bittle's Varsity MVP, Blog project  
