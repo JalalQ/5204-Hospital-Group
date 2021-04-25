@@ -43,18 +43,18 @@ namespace GeraldtonHospV7.Controllers
         //STRIPE integration - basic 
         //https://www.thecodehubs.com/stripe-payment-integration-in-asp-net-mvc/?unapproved=769&moderation-hash=2f40b7153c849ad9e3ae74d57fac1c6e#comment-769
 
-        public ActionResult Index()
-        {
-            ViewBag.StripePublishKey = ConfigurationManager.AppSettings["stripePublishableKey"];
-            return View();
-        }
+        //public ActionResult Index()
+        //{
+        //    ViewBag.StripePublishKey = ConfigurationManager.AppSettings["stripePublishableKey"];
+        //    return View();
+        //}
 
         //[HttpPost]
        
         //public ActionResult Charge(string stripeToken, string stripeEmail)
         //{
-        //    Stripe.StripeConfiguration.SetApiKey("pk_live_YZ2bGuyiDoEwPUeer4gHT8JI00ahuEdZCL");
-        //    Stripe.StripeConfiguration.ApiKey = "sk_live_UNjy1cMo5pckD5oFEgCzXf4i0028fX50UQ";
+        //    Stripe.StripeConfiguration.SetApiKey("");  //add api key
+        //    Stripe.StripeConfiguration.ApiKey = ""; //add api key
 
         //    var myCharge = new Stripe.ChargeCreateOptions();
         //    // always set these properties
