@@ -178,6 +178,7 @@ namespace team2Geraldton.Controllers
         /// </example>
         [ResponseType(typeof(void))]
         [HttpPost]
+        //[Authorize(Roles = "Admin")]
         public IHttpActionResult UpdateStaff(int id, [FromBody] Staff Staff)
         {
             if (!ModelState.IsValid)
@@ -222,6 +223,7 @@ namespace team2Geraldton.Controllers
         /// </example>
         [ResponseType(typeof(Staff))]
         [HttpPost]
+        //[Authorize(Roles = "Admin")]
         public IHttpActionResult AddStaff([FromBody] Staff staff)
         {
             //Will Validate according to data annotations specified on model
@@ -229,6 +231,7 @@ namespace team2Geraldton.Controllers
             {
                 return BadRequest(ModelState);
             }
+
             db.Staffs.Add(staff);
             db.SaveChanges();
 
@@ -244,7 +247,7 @@ namespace team2Geraldton.Controllers
         /// POST: api/StaffData/DeleteStaff/2
         /// </example>
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteStaff(int id)
         {
             Staff Staff = db.Staffs.Find(id);

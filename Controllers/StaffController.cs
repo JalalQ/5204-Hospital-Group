@@ -38,20 +38,63 @@ namespace team2Geraldton.Controllers
 
 
         // GET: Staff/List
-        public ActionResult List()
+        public ActionResult List(int PageNum = 0)
         {
+
+            ListStaffs ViewModel = new ListStaffs();
+            ViewModel.isadmin = User.IsInRole("Admin");
             string url = "StaffData/GetStaffs";
             HttpResponseMessage response = client.GetAsync(url).Result;
             if (response.IsSuccessStatusCode)
             {
                 IEnumerable<StaffDto> SelectedStaffs = response.Content.ReadAsAsync<IEnumerable<StaffDto>>().Result;
-                return View(SelectedStaffs);
+
+                int StaffCount = SelectedStaffs.Count();
+                // Number of staffs to display per page
+                int PerPage = 8;
+                // Determines the maximum number of pages (rounded up), assuming a page 0 start.
+                int MaxPage = (int)Math.Ceiling((decimal)StaffCount / PerPage) - 1;
+
+                // Lower boundary for Max Page
+                if (MaxPage < 0) MaxPage = 0;
+                // Lower boundary for Page Number
+                if (PageNum < 0) PageNum = 0;
+                // Upper Bound for Page Number
+                if (PageNum > MaxPage) PageNum = MaxPage;
+
+                // The Record Index of our Page Start
+                int StartIndex = PerPage * PageNum;
+
+                //Helps us generate the HTML which shows "Page 1 of ..." on the list view
+                ViewData["PageNum"] = PageNum;
+                ViewData["PageSummary"] = " " + (PageNum + 1) + " of " + (MaxPage + 1) + " ";
+
+                // -- End of Pagination Algorithm --
+
+
+                // Send back another request to get players, this time according to our paginated logic rules
+                // GET api/staffdata/getstaffspage/{startindex}/{perpage}
+                url = "Staffdata/getStaffspage/" + StartIndex + "/" + PerPage;
+                response = client.GetAsync(url).Result;
+
+                // Retrieve the response of the HTTP Request
+                IEnumerable<StaffDto> SelectedStaffsPage = response.Content.ReadAsAsync<IEnumerable<StaffDto>>().Result;
+
+                ViewModel.staffs = SelectedStaffsPage;
+
+                //Return the paginated of players instead of the entire list
+                return View(ViewModel);
+
             }
             else
             {
+                // If we reach here something went wrong with our list algorithm
                 return RedirectToAction("Error");
             }
+
+
         }
+
 
 
 
@@ -88,6 +131,7 @@ namespace team2Geraldton.Controllers
 
 
         //GET: Staff/Edit/2
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             UpdateStaff ViewModel = new UpdateStaff();
@@ -103,7 +147,7 @@ namespace team2Geraldton.Controllers
                 ViewModel.staff = SelectedStaff;
 
                 //get information about teams this player COULD play for.
-                url = "departmentdata/getdepartmentss";
+                url = "departmentdata/getdepartments";
                 response = client.GetAsync(url).Result;
                 IEnumerable<DepartmentDto> PotentialDepartments = response.Content.ReadAsAsync<IEnumerable<DepartmentDto>>().Result;
                 ViewModel.alldepartments = PotentialDepartments;
@@ -119,6 +163,7 @@ namespace team2Geraldton.Controllers
         // POST:Staff/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken()]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id, Staff StaffInfo)
         {
             Debug.WriteLine(StaffInfo.FirstName);
@@ -141,9 +186,9 @@ namespace team2Geraldton.Controllers
 
 
 
-        // GET: Player/Create
+        // GET: Staff/Create
         // only administrators get to this page
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             UpdateStaff ViewModel = new UpdateStaff();
@@ -156,26 +201,27 @@ namespace team2Geraldton.Controllers
             return View(ViewModel);
         }
 
+        
         // POST: Player/Create
         [HttpPost]
         [ValidateAntiForgeryToken()]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(Staff StaffInfo)
         {
             //pass along authentication credential in http request
             //GetApplicationCookie();
 
-            Debug.WriteLine(StaffInfo.FirstName);
+            //Debug.WriteLine(StaffInfo.FirstName);
             Debug.WriteLine(jss.Serialize(StaffInfo));
-            string url = "staffdata/addstaff";
+            string url = "Staffdata/addStaff";
             HttpContent content = new StringContent(jss.Serialize(StaffInfo));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = client.PostAsync(url, content).Result;
 
             if (response.IsSuccessStatusCode)
             {
-                int StaffId = response.Content.ReadAsAsync<int>().Result;
-                return RedirectToAction("Details", new { id = StaffId });
+                int staffid = response.Content.ReadAsAsync<int>().Result;
+                return RedirectToAction("Details", new { id = staffid });
             }
             else
             {
@@ -185,6 +231,7 @@ namespace team2Geraldton.Controllers
 
         // GET: Staff/Delete/5
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirm(int id)
         {
             string url = "Staffdata/findStaff/" + id;
@@ -206,9 +253,10 @@ namespace team2Geraldton.Controllers
         // POST: Staff/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken()]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
-            string url = "Staffdata/deleteStaff/" + id;
+            string url = "staffdata/deleteStaff/" + id;
             //post body is empty
             HttpContent content = new StringContent("");
             HttpResponseMessage response = client.PostAsync(url, content).Result;

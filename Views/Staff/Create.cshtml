@@ -57,13 +57,20 @@
         <div class="form-group">
             @Html.LabelFor(model => model.staff.DepartmentId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select name="TeamID" class="form-control">
-                        @foreach (var team in Model.alldepartments)
+                @if (Model.alldepartments.Count() == 0)
+                {
+                    <span>There are no teams yet. Please @Html.ActionLink("add a department", "Create", "Department") first.</span>
+                }
+                else
+                {
+                    <select name="DepartmentId" class="form-control">
+                        @foreach (var department in Model.alldepartments)
                         {
-                            <option value="@team.DepartmentId">@team.DepartmentName</option>
+                            <option value="@department.DepartmentId">@department.DepartmentName</option>
                         }
                     </select>
-               </div>
+                }
+            </div>
         </div>
 
         <div class="form-group">

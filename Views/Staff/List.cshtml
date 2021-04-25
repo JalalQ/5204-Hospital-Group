@@ -4,54 +4,63 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
+<h2>Hospital Staff Directory</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   @if (Model.isadmin)
+   {
+       //Conditional rendering based on admin or non-admin
+        @Html.ActionLink("Create New", "Create")
+   }
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.staffs.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.staffs.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.staffs.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.staffs.Contact)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.staffs.Position)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    <div class="page-container">
+        <div class="row">
+            @foreach (var item in Model.staffs)
+            {
+                <div class="col-sm-4">
+                    <h3>
+                        @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                    </h3>
+                    <div class="staff">
+                        <span>Position:</span>
+                        @Html.DisplayFor(modelItem => item.Position)
 
-@foreach (var item in Model.staffs) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contact)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Position)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StaffId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StaffId }) |
-            @Html.ActionLink("Delete", "DeleteConfirm", new { id=item.StaffId })
-        </td>
-    </tr>
-}
+                    </div>
+                    <div class="staff">
+                        <i class="fas fa-envelope"></i>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </div>
+                    <div class="staff">
+                        <i class="fas fa-phone-alt"></i>
+                        @Html.DisplayFor(modelItem => item.Contact)
+                    </div>
+                    <br />
 
-</table>
+                    @if (Model.isadmin)
+                    {
+                        <p>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.StaffId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.StaffId }) |
+                            @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.StaffId })
+                        </p>
+                    }
+                    <p>
+                        @Html.ActionLink("Details", "Details", new { id = item.StaffId })
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="paginate">
+    @if (Model.staffs.Count() > 0)
+    {
+        int PrevPage = Convert.ToInt32(ViewData["PageNum"]) - 1;
+        int NextPage = Convert.ToInt32(ViewData["PageNum"]) + 1;
+        @Html.ActionLink("Prev", "List", new { PageNum = PrevPage })
+        @ViewData["PageSummary"]
+        @Html.ActionLink("Next", "List", new { PageNum = NextPage })
+    }
+</div>
