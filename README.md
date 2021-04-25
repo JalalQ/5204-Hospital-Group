@@ -23,8 +23,8 @@ I have worked on the news/events feature and the payments feature. I have submit
 
 ===============================================  
 ### Simranjeet Singh 
-I have worked on the Volunteer Applications , Departments and Volunteer Opportunitities table including models, controllers and datacontollers.
-My work is in Volunteers_Departmentsss branch : https://github.com/sasha-s-07/Hospital-Project/tree/Volunteers_Departmentsss including project readme.md
+- I have worked on the Volunteer Applications , Departments and Volunteer Opportunitities table including models, controllers and datacontollers.
+- My work is in Volunteers_Departmentsss branch : https://github.com/sasha-s-07/Hospital-Project/tree/Volunteers_Departmentsss including project readme.md
 
 ===============================================
 ### Navpreet Kaur
