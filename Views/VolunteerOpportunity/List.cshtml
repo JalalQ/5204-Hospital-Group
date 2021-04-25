@@ -1,0 +1,44 @@
+﻿@model IEnumerable<team2Geraldton.Models.VolunteerOpportunityDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<link rel="stylesheet" href="~/Content/content/StyleSheet1.css" />
+
+<h2>The current opporunities available for volunteers. Feel free to apply for volunteer application by navigating to VolunteerApplications in navbar</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table" id="customers">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OpportunityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpportunityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OpportunityID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OpportunityID }) |
+                @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.OpportunityID })
+            </td>
+        </tr>
+    }
+
+</table>
