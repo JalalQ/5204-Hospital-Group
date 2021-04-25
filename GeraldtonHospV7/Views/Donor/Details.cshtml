@@ -1,0 +1,60 @@
+﻿@model GeraldtonHospV7.Models.ViewModels.ShowDonor
+
+@{
+    ViewBag.Title = "View";
+
+}
+
+<h2>View</h2>
+
+<h4>Donor @Model.Donor.FirstName</h4>
+<div style="overflow:hidden;">
+    <div style="float:left; margin-right:2%; width:49%;">
+
+        <div>@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.Donor.DonorID })</div>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Donor.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Donor.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Donor.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Donor.LastName)
+            </dd>
+
+        </dl>
+    </div>
+    <div style="float:left;margin-right:0%; width:49%;">
+        <div>
+            <h4>Donations:</h4>
+            <div>
+                @foreach (var Donation in Model.DonorDonations)
+                {
+                    <div>
+                        @Html.ActionLink(
+                        Donation.DonationID + " " + Donation.Amount,
+                        "Details",
+                        "Donation",
+                        new { id = Donation.DonationID },
+                        new { })
+                    </div>
+                }
+            </div>
+        </div>
+      
+            
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Donor.DonorID }) |
+    @Html.ActionLink("Back to List", "List")
+</p>
