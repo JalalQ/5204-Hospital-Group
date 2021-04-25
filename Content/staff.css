@@ -1,0 +1,24 @@
+﻿h2{
+    text-align:center;
+}
+.staff{
+    color: #002344;
+}
+span{
+    font-weight:bold;
+}
+.page-container{
+    padding:40px;
+}
+.col-sm-4{
+    align-items:center;
+}
+.paginate{
+    float:right;
+}
+.navbar-inverse {
+    background-color: #004990;
+}
+ .navbar-inverse .navbar-nav > li > a{
+    color:#ffffff;
+ }
