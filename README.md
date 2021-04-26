@@ -2,7 +2,7 @@
 
 ### Features : Following features i have worked on after the feedback of MVP
 - Volunteer Applications (Only registered hospital "User" can fill this form)
-- Volunteers List (only "Admin" can Edit and delete information about volunteers)
+- Volunteers List (only "Admin" can Read , Edit and delete information about volunteers)
 - Departments (Any user who visit our website can look at department timings and information, so they can walk in to hospital for treatment.) But at backend "Admin" can make perform edit and delete operations. 
 - Volunteer Opportunitities  (Any user who visit our website can look at opportunities avialable for volunteers,if they are interested they can register and fill "Volunteer Applications"). But at backend "Admin" can make perform edit and delete operations. 
 
