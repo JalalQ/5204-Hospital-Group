@@ -1,3 +1,4 @@
+
 # Hospital-Project
 ## Navpreet Kaur
 ### Hospital Staff Directory
@@ -11,3 +12,5 @@
 ![Screenshot (7)](https://user-images.githubusercontent.com/71792075/116010134-4052d500-a5eb-11eb-81ce-fedcce6f7469.png)
 ### Job Posts
 - [x] CRUD functionality for Job Posts feature where only admin can post job vacancies and user can view and apply for job.
+* User View
+![Screenshot (18)](https://user-images.githubusercontent.com/71792075/116030563-d0b00a80-a629-11eb-930b-a6f9784172ad.png)
