@@ -36,11 +36,9 @@ Learnings: I am working on Job Posting feature and Hospital Staff Directory feat
 ===============================================
 ### Jalaluddin Qureshi
 Feature: Doctor CRUD
-Branch Location: https://github.com/sasha-s-07/Hospital-Project/tree/DoctorCRUD
+Branch Location: https://github.com/sasha-s-07/Hospital-Project/tree/Dr-Review
 
-Learnings: My major learning has been to WebAPI and ViewModels for this project. In the Passion Project I had used the MVC controller (auto-scaffolding approach). Due to this, there had been a large learning curve for me for this project.
-
-Right Now I have got the List, Detail and Create working. I have also implemented Pagination feature on the List View. Over the next coming days and weeks, I would be further improving my work.
+I worked on the Doctor-Review Feature. A detailed documentation of my feature is given on my branch README file.
 
 =================================================
 
