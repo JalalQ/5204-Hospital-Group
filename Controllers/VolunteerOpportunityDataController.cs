@@ -90,6 +90,7 @@ namespace team2Geraldton.Controllers
         /// </example>
         [ResponseType(typeof(void))]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult UpdateVolunteerOpportunity(int id, [FromBody] VolunteerOpportunity VolunteerOpportunity)
         {
             if (!ModelState.IsValid)
@@ -135,6 +136,7 @@ namespace team2Geraldton.Controllers
         /// </example>
         [ResponseType(typeof(VolunteerOpportunity))]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult AddVolunteerOpportunity([FromBody] VolunteerOpportunity VolunteerOpportunity)
         {
             //Will Validate according to data annotations specified on model
@@ -159,6 +161,7 @@ namespace team2Geraldton.Controllers
         /// POST: api/VolunteerOpportunityData/DeleteVolunteerOpportunity/5
         /// </example>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteVolunteerOpportunity(int id)
         {
             VolunteerOpportunity VolunteerOpportunity = db.VolunteerOpportunities.Find(id);

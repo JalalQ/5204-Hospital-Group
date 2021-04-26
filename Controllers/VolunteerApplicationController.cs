@@ -41,7 +41,7 @@ namespace team2Geraldton.Controllers
 
         // Only User can apply for the volunteer application and once user submit they will get a success message
         // GET: VolunteerApplication/Create
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         public ActionResult Create()
         {
             ViewBag.OpportunityID = new SelectList(db.VolunteerOpportunities, "OpportunityID", "OpportunityName");
@@ -54,7 +54,7 @@ namespace team2Geraldton.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         public ActionResult Create([Bind(Include = "VolunteerID,Name,Address,City,Email,ContactNumber,Language,WhyInterested,PastVolunteer,OpportunityID")] VolunteerApplication volunteerApplication)
         {
             if (ModelState.IsValid)

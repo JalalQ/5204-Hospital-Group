@@ -90,6 +90,7 @@ namespace team2Geraldton.Controllers
         /// </example>
         [ResponseType(typeof(void))]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult UpdateDepartment(int id, [FromBody] Department Department)
         {
             if (!ModelState.IsValid)
@@ -134,6 +135,7 @@ namespace team2Geraldton.Controllers
         /// </example>
         [ResponseType(typeof(Department))]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult AddDepartment([FromBody] Department Department)
         {
             //Will Validate according to data annotations specified on model
@@ -157,6 +159,7 @@ namespace team2Geraldton.Controllers
         /// POST: api/DepartmentData/DeleteDepartment/5
         /// </example>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteDepartment(int id)
         {
             Department Department = db.Departments.Find(id);
