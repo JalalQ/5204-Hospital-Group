@@ -9,6 +9,10 @@
 ![Screenshot (3)](https://user-images.githubusercontent.com/71792075/116010129-30d38c00-a5eb-11eb-8f8d-a255586e26b0.png)
 * Admin View
 ![Screenshot (7)](https://user-images.githubusercontent.com/71792075/116010134-4052d500-a5eb-11eb-81ce-fedcce6f7469.png)
+* Admin Create View
+- [x] Admin can choose Department for staff from the department table.
+![Screenshot (19)](https://user-images.githubusercontent.com/71792075/116031122-06a1be80-a62b-11eb-9ca6-df8ceddcb595.png)
+
 ### Job Posts
 - [x] CRUD functionality for Job Posts feature where only admin can post job vacancies and user can view and apply for job.
 * User View
