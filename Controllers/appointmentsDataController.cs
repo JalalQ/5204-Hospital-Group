@@ -21,7 +21,7 @@ namespace team2Geraldton.Controllers
 
         /// GET : api/appointmentData/getAppointment
         [ResponseType(typeof(IEnumerable<appointmentDto>))]
-        [Route("api/appointmentData/getAppointment")]
+        [Route("api/appointmentsData/getAppointment")]
         public IHttpActionResult getAppointment()
         {
             List<appointment> Appointments = db.Appointments.ToList();
@@ -34,36 +34,84 @@ namespace team2Geraldton.Controllers
                     bookId = ap.bookId,
                     bookDate = ap.bookDate,
                     bookReason = ap.bookReason,
-                  //  drName = ap.drName,
-                //    department = ap.department,
+                    doctorID = ap.doctorID,
+                    //patientId=ap.patientId,                   
                 };
                 appDtos.Add(NewAppointment);
             }
             return Ok(appDtos);
 
         }
-        // GET: api/appointmentData/5
+
+
+
+/// <summary>
+ ///  Find an apointment with bookId as input parameter
+/// </summary>
+/// <param name="id"></param>
+/// <returns>some fiels of appointmentDto</returns>
+        // GET: api/appointmentsData/5
         [HttpGet]
-        [ResponseType(typeof(appointment))]
+        [ResponseType(typeof(appointmentDto))]
         public IHttpActionResult Findappointment(int id)
         {
-            appointment appointment = db.Appointments.Find(id);
-            if (appointment == null)
+            appointment app = db.Appointments.Find(id);
+
+            if (app == null)
             {
                 return NotFound();
             }
-            appointmentDto NewApp = new appointmentDto
-            {
-                bookId = appointment.bookId,
-                bookDate = appointment.bookDate,
-                bookReason = appointment.bookReason,
-               // drName = appointment.drName,
-               // department = appointment.department,
-            };
+           
+                appointmentDto appDto = new appointmentDto
+                {
+                    bookId = app.bookId,
+                    bookDate = app.bookDate,
+                    bookReason = app.bookReason,
+                    doctorID = app.doctorID,
+                    departName = app.departName,
+                    //patientId = app.patientId,
 
+                };
 
-            return Ok(NewApp);
+                return Ok(appDto);
+           
         }
+
+
+        /// <summary>
+        /// //////////////////////////////////////////////////////////////////
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="appointment"></param>
+        /// <returns></returns>
+        // GET: api/appointmentsData/FindDoctorForAppointment/5
+        // </example>
+        [HttpGet]
+        [ResponseType(typeof(doctorDto))]
+        public IHttpActionResult FindDoctorForAppointment(int id)
+        {
+            //Finds a doctor
+            //that match the input bookId
+            doctor doctor = db.doctors
+                .Where(d=> d.Appointments.Any(a =>a.bookId == id))
+                .FirstOrDefault();
+            //if not found, return 404 status code.
+            if (doctor == null)
+            {
+                return NotFound();
+            }
+
+            //put into a 'friendly object format'
+            doctorDto doDto = new doctorDto
+            {
+               doctorID=doctor.doctorID,
+               expertise=doctor.expertise,
+               fullName=doctor.fullName,
+            };
+             //pass along data as 200 status code OK response
+            return Ok(doDto);
+        }
+
 
 
         // PUT: api/appointmentData/5
@@ -117,8 +165,10 @@ namespace team2Geraldton.Controllers
 
             return Ok(appointment.bookId);
         }
-        // DELETE: api/appointmentData/5
-        [ResponseType(typeof(appointment))]
+        
+
+        /// POST: api/appointmentsrData/Deleteappointments/5
+        [HttpPost]
         public IHttpActionResult Deleteappointment(int id)
         {
             appointment appointment = db.Appointments.Find(id);
@@ -132,6 +182,8 @@ namespace team2Geraldton.Controllers
 
             return Ok(appointment);
         }
+
+
         [ResponseType(typeof(void))]
         [HttpPost]
         public IHttpActionResult UpdateAppointment(int id, [FromBody] appointment app)
@@ -169,14 +221,14 @@ namespace team2Geraldton.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+       // protected override void Dispose(bool disposing)
+      //  {
+       //     if (disposing)
+      //      {
+      //          db.Dispose();
+     //       }
+     //       base.Dispose(disposing);
+       // }
 
         private bool appointmentExists(int id)
         {

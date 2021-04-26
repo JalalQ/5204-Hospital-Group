@@ -1,50 +1,42 @@
-﻿@model team2Geraldton.Models.appointment
+﻿@model team2Geraldton.Models.View_Models.chooseDoctor
 
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
+<h4>Appointment Details</h4>
 <div>
-    <h4>appointment</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.bookDate)
-        </dt>
+<nav class="editnav">
+    <ul>
+        <li>@Html.ActionLink("Back to List", "List")</li>
 
-        <dd>
-            @Html.DisplayFor(model => model.bookDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.bookReason)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.bookReason)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.drName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.drName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.department)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.department)
-        </dd>
-
-    </dl>
+        <li>@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.appointment.bookId })</li>
+        <li>@Html.ActionLink("Edit", "Edit", new { id = Model.appointment.bookId})</li>
+    </ul>
+</nav>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.bookId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<hr />
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+               <th scope="col">@Html.DisplayNameFor( Model => Model.appointment )</th>
+               <th scope="col">Department Name</th>
+               <th scope="col">Book Reason</th> 
+               <th scope="col">Book Date</th> 
+               <th scope="col">Doctor Name</th>
+               <th scope="col">Doctor Experties</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> @Html.DisplayNameFor(model=>model.appointment.bookId) </td>
+                <td>  @Html.DisplayFor(model=> model.appointment.departName)</td>
+                <td> @Html.DisplayNameFor(model => model.appointment.bookReason)</td>
+                <td> @Html.DisplayFor(model => model.appointment.bookDate)</td>
+                <td>  @Html.DisplayNameFor(model => model.doctor.fullName)</td>
+                <td> @Html.DisplayNameFor(model => model.doctor.expertise)</td>
+            </tr>
+        </tbody>
+    </table>
+   
+</div>

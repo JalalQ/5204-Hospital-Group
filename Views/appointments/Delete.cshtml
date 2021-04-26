@@ -1,4 +1,4 @@
-﻿@model team2Geraldton.Models.appointment
+﻿@model team2Geraldton.Models.appointmentDto
 
 @{
     ViewBag.Title = "Delete";
@@ -28,19 +28,26 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.drName)
+            @Html.DisplayNameFor(model => model.doctorID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.drName)
+            @Html.DisplayFor(model => model.doctorID)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.department)
+            @Html.DisplayNameFor(model => model.departName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.department)
+            @Html.DisplayFor(model => model.departName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.bookId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bookId)
         </dd>
 
     </dl>

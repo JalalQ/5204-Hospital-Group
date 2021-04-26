@@ -183,6 +183,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\appointmentsController.cs" />
     <Compile Include="Controllers\appointmentsDataController.cs" />
+    <Compile Include="Controllers\doctorsDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,11 +209,87 @@
     <Compile Include="Migrations\202104221749062_add-FKAppUser.Designer.cs">
       <DependentUpon>202104221749062_add-FKAppUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104231520218_add-doctor.cs" />
+    <Compile Include="Migrations\202104231520218_add-doctor.Designer.cs">
+      <DependentUpon>202104231520218_add-doctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104231527251_doctors-table.cs" />
+    <Compile Include="Migrations\202104231527251_doctors-table.Designer.cs">
+      <DependentUpon>202104231527251_doctors-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104231546303_patient-table.cs" />
+    <Compile Include="Migrations\202104231546303_patient-table.Designer.cs">
+      <DependentUpon>202104231546303_patient-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104231608213_forienkey.cs" />
+    <Compile Include="Migrations\202104231608213_forienkey.Designer.cs">
+      <DependentUpon>202104231608213_forienkey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104231910543_patient-pk.cs" />
+    <Compile Include="Migrations\202104231910543_patient-pk.Designer.cs">
+      <DependentUpon>202104231910543_patient-pk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104241648445_add-visiting.cs" />
+    <Compile Include="Migrations\202104241648445_add-visiting.Designer.cs">
+      <DependentUpon>202104241648445_add-visiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104241719344_rem2.cs" />
+    <Compile Include="Migrations\202104241719344_rem2.Designer.cs">
+      <DependentUpon>202104241719344_rem2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104241725024_visit.cs" />
+    <Compile Include="Migrations\202104241725024_visit.Designer.cs">
+      <DependentUpon>202104241725024_visit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104241856233_visit-F.cs" />
+    <Compile Include="Migrations\202104241856233_visit-F.Designer.cs">
+      <DependentUpon>202104241856233_visit-F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104242056158_newfield.cs" />
+    <Compile Include="Migrations\202104242056158_newfield.Designer.cs">
+      <DependentUpon>202104242056158_newfield.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104242100146_newfield1.cs" />
+    <Compile Include="Migrations\202104242100146_newfield1.Designer.cs">
+      <DependentUpon>202104242100146_newfield1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104242102458_newfield2.cs" />
+    <Compile Include="Migrations\202104242102458_newfield2.Designer.cs">
+      <DependentUpon>202104242102458_newfield2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104242104490_rem-field.cs" />
+    <Compile Include="Migrations\202104242104490_rem-field.Designer.cs">
+      <DependentUpon>202104242104490_rem-field.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104242108111_depart-add.cs" />
+    <Compile Include="Migrations\202104242108111_depart-add.Designer.cs">
+      <DependentUpon>202104242108111_depart-add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104251753109_update-doctomodel.cs" />
+    <Compile Include="Migrations\202104251753109_update-doctomodel.Designer.cs">
+      <DependentUpon>202104251753109_update-doctomodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104252007271_update.cs" />
+    <Compile Include="Migrations\202104252007271_update.Designer.cs">
+      <DependentUpon>202104252007271_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104260438253_remove-patient.cs" />
+    <Compile Include="Migrations\202104260438253_remove-patient.Designer.cs">
+      <DependentUpon>202104260438253_remove-patient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104260520091_user-appointment.cs" />
+    <Compile Include="Migrations\202104260520091_user-appointment.Designer.cs">
+      <DependentUpon>202104260520091_user-appointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\appointment.cs" />
+    <Compile Include="Models\doctor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\View Models\chooseDoctor.cs" />
+    <Compile Include="Models\View Models\listAppointment.cs" />
+    <Compile Include="Models\View Models\showDoctorPatient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -273,11 +350,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\appointments\Index.cshtml" />
-    <Content Include="Views\appointments\List.cshtml" />
     <Content Include="Views\appointments\Details.cshtml" />
-    <Content Include="Views\appointments\Create.cshtml" />
     <Content Include="Views\appointments\Edit.cshtml" />
     <Content Include="Views\appointments\Delete.cshtml" />
+    <Content Include="Views\appointments\List.cshtml" />
+    <Content Include="Views\appointments\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,6 +387,60 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104221749062_add-FKAppUser.resx">
       <DependentUpon>202104221749062_add-FKAppUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104231520218_add-doctor.resx">
+      <DependentUpon>202104231520218_add-doctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104231527251_doctors-table.resx">
+      <DependentUpon>202104231527251_doctors-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104231546303_patient-table.resx">
+      <DependentUpon>202104231546303_patient-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104231608213_forienkey.resx">
+      <DependentUpon>202104231608213_forienkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104231910543_patient-pk.resx">
+      <DependentUpon>202104231910543_patient-pk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104241648445_add-visiting.resx">
+      <DependentUpon>202104241648445_add-visiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104241719344_rem2.resx">
+      <DependentUpon>202104241719344_rem2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104241725024_visit.resx">
+      <DependentUpon>202104241725024_visit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104241856233_visit-F.resx">
+      <DependentUpon>202104241856233_visit-F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104242056158_newfield.resx">
+      <DependentUpon>202104242056158_newfield.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104242100146_newfield1.resx">
+      <DependentUpon>202104242100146_newfield1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104242102458_newfield2.resx">
+      <DependentUpon>202104242102458_newfield2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104242104490_rem-field.resx">
+      <DependentUpon>202104242104490_rem-field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104242108111_depart-add.resx">
+      <DependentUpon>202104242108111_depart-add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104251753109_update-doctomodel.resx">
+      <DependentUpon>202104251753109_update-doctomodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104252007271_update.resx">
+      <DependentUpon>202104252007271_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104260438253_remove-patient.resx">
+      <DependentUpon>202104260438253_remove-patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104260520091_user-appointment.resx">
+      <DependentUpon>202104260520091_user-appointment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,51 +1,40 @@
-﻿@model IEnumerable<team2Geraldton.Models.appointment>
-
+﻿@model team2Geraldton.Models.View_Models.listAppointment
 @{
     ViewBag.Title = "List";
+
 }
-
-<h2>List</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.bookDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.bookReason)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.drName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.department)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.bookDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bookReason)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.drName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.department)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.bookId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.bookId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.bookId })
-        </td>
-    </tr>
-}
-
-</table>
+<h2>Appointments</h2>
+//Conditional rendering based on admin or non-admin
+@Html.ActionLink("Create New", "Create")
+<div class="record-container">
+    @foreach (var appointmet in Model.appointments)
+    {
+        <div class="recordtitle">
+            <table class="table table-striped">
+                <caption>Appointments List</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Reason</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Depatment Name</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="col">@Html.DisplayFor(modelItem => appointmet.bookId)</th>
+                        <td> @Html.DisplayFor(modelItem => appointmet.bookReason)</td>
+                        <td> @Html.DisplayFor(modelItem => appointmet.bookDate)</td>
+                        <td> @Html.DisplayFor(modelItem => appointmet.departName)</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = appointmet.bookId }) |
+                            @Html.ActionLink("Details", "Details", new { id = appointmet.bookId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = appointmet.bookId })
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
