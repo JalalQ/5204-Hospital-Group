@@ -8,6 +8,10 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://kit.fontawesome.com/34cfee3006.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tiny.cloud/1/jt7129pdxryi9hgjy9m22l6xp4xoau3c49g9d89gol6uxypb/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="~/Scripts/staff.js"></script>
+   
+
 
 </head>
 <body>
@@ -22,7 +26,7 @@
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav" >
+                <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("About", "Index", "Home")</li>
                     <li>@Html.ActionLink("Program & Services", "About", "Home")</li>
                     <li>@Html.ActionLink("Patients & Visitors", "Contact", "Home")</li>
@@ -46,5 +50,12 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    
+<script>
+    tinymce.init({
+        
+    });
+</script>
 </body>
 </html>

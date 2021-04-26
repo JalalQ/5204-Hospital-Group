@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using team2Geraldton.Models;
+using team2Geraldton.Models.ViewModels;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Diagnostics;
@@ -37,14 +38,18 @@ namespace team2Geraldton.Controllers
 
 
         // GET: Post/List
+        
         public ActionResult List()
         {
+            ListPosts ViewModel = new ListPosts();
+            ViewModel.isadmin = User.IsInRole("Admin");
             string url = "PostData/GetPosts";
             HttpResponseMessage response = client.GetAsync(url).Result;
             if (response.IsSuccessStatusCode)
             {
                 IEnumerable<PostDto> SelectedPosts = response.Content.ReadAsAsync<IEnumerable<PostDto>>().Result;
-                return View(SelectedPosts);
+                ViewModel.posts = SelectedPosts;
+                return View(ViewModel);
             }
             else
             {

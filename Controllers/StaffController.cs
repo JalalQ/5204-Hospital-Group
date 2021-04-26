@@ -26,7 +26,9 @@ namespace team2Geraldton.Controllers
         {
             HttpClientHandler handler = new HttpClientHandler()
             {
-                AllowAutoRedirect = false
+                AllowAutoRedirect = false,
+                //cookies are manually set in RequestHeader
+                UseCookies = false
             };
             client = new HttpClient(handler);
             //change this to match your own local port number
@@ -35,6 +37,37 @@ namespace team2Geraldton.Controllers
             new MediaTypeWithQualityHeaderValue("application/json"));
             //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ACCESS_TOKEN);
         }
+
+
+        /// <summary>
+        /// Grabs the authentication credentials which are sent to the Controller.
+        /// This is NOT considered a proper authentication technique for the WebAPI. It piggybacks the existing authentication set up in the template for Individual User Accounts. Considering the existing scope and complexity of the course, it works for now.
+        /// 
+        /// Here is a descriptive article which walks through the process of setting up authorization/authentication directly.
+        /// https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/individual-accounts-in-web-api
+        /// </summary>
+        private void GetApplicationCookie()
+        {
+            string token = "";
+            //HTTP client is set up to be reused, otherwise it will exhaust server resources.
+            //This is a bit dangerous because a previously authenticated cookie could be cached for
+            //a follow-up request from someone else. Reset cookies in HTTP client before grabbing a new one.
+            client.DefaultRequestHeaders.Remove("Cookie");
+            if (!User.Identity.IsAuthenticated) return;
+
+            HttpCookie cookie = System.Web.HttpContext.Current.Request.Cookies.Get(".AspNet.ApplicationCookie");
+            if (cookie != null) token = cookie.Value;
+
+            //collect token as it is submitted to the controller
+            //use it to pass along to the WebAPI.
+            Debug.WriteLine("Token Submitted is : " + token);
+            if (token != "") client.DefaultRequestHeaders.Add("Cookie", ".AspNet.ApplicationCookie=" + token);
+
+            return;
+        }
+
+
+
 
 
         // GET: Staff/List
@@ -51,7 +84,7 @@ namespace team2Geraldton.Controllers
 
                 int StaffCount = SelectedStaffs.Count();
                 // Number of staffs to display per page
-                int PerPage = 8;
+                int PerPage = 6;
                 // Determines the maximum number of pages (rounded up), assuming a page 0 start.
                 int MaxPage = (int)Math.Ceiling((decimal)StaffCount / PerPage) - 1;
 

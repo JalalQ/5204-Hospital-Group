@@ -1,45 +1,48 @@
-﻿@model IEnumerable<team2Geraldton.Models.PostDto>
+﻿@model team2Geraldton.Models.ViewModels.ListPosts
 
 @{
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
+<h2>Recent Job Posts</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+
+
+   @if (Model.isadmin)
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model.posts)
+    {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            <span class="staff">@Html.DisplayFor(modelItem => item.Title)</span>
+            - @Html.DisplayFor(modelItem => item.Type)
         </td>
+        @if (Model.isadmin)
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PostId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PostId }) |
+                @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.PostId })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.PostId })
+            </td>
+            }
+
+
         <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PostId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PostId }) |
-            @Html.ActionLink("Delete", "DeleteConfirm", new { id=item.PostId })
+            <a class="btn btn-info" href="">Apply</a>
         </td>
     </tr>
-}
+    }
 
 </table>

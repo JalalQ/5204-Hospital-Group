@@ -9,7 +9,6 @@
 <p>
    @if (Model.isadmin)
    {
-       //Conditional rendering based on admin or non-admin
         @Html.ActionLink("Create New", "Create")
    }
 </p>
@@ -45,9 +44,12 @@
                             @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.StaffId })
                         </p>
                     }
-                    <p>
-                        @Html.ActionLink("Details", "Details", new { id = item.StaffId })
-                    </p>
+                    else
+                    {
+                        <p>
+                            @Html.ActionLink("Details", "Details", new { id = item.StaffId })
+                        </p>
+                    }
                 </div>
             }
         </div>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,6 +14,7 @@ namespace team2Geraldton.Models
         public int PostId { get; set; }
         public string Title { get; set; }
         public string Type { get; set; }
+        [AllowHtml]
         public string Description { get; set; }
 
     }
@@ -25,6 +27,7 @@ namespace team2Geraldton.Models
         public string Type { get; set; }
         [DisplayName("Job Description")]
         public string Description { get; set; }
+        
 
     }
 }
