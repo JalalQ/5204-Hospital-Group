@@ -46,7 +46,9 @@ I worked on the Doctor-Review Feature. A detailed documentation of my feature is
 
 Book appointment,Login
 
-Branch Location:https://github.com/sasha-s-07/Hospital-Project/tree/login_appointment2
+Branch Location:https://github.com/sasha-s-07/Hospital-Project/tree/newLogAppointment
+
+(New Read Me about Final Submision in branch)
 
 -Models: I creaated 2 Models:client and appointment to book an appointment
 
