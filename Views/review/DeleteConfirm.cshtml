@@ -1,0 +1,23 @@
+﻿@model team2Geraldton.Models.reviewDto
+
+@{
+    ViewBag.Title = "Delete Confirmation";
+}
+
+<h2>Delete Confirmation</h2>
+
+<h3>Are you sure you want to delete Review ID # @Model.reviewID  ?</h3>
+
+
+@using (Html.BeginForm("Delete", "review", new { id = Model.reviewID }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-default" />
+    <ul class="nav navbar-nav navbar-right">
+        <button type="submit" class="btn btn-toolbar" >@Html.ActionLink("Cancel - Back to List", "List")</button>
+    </ul>
+</div>
+
+}

@@ -1,0 +1,84 @@
+﻿@model team2Geraldton.Models.ViewModels.UpdateReview
+
+@{
+    ViewBag.Title = "Submit New Review";
+}
+
+
+@using (Html.BeginForm())
+{
+    //This will set a hidden input field with value "_RequestVerificationToken"
+    //The TeamController Create Method will look for this token
+    //This helps secure the Create() method from being called from other pages.
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Submit Review for a Doctor!</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.review.friendly, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.review.friendly, new { htmlAttributes = new { @class = "form-control", Name = "Friendly" } })
+            @Html.ValidationMessageFor(model => model.review.friendly, "", new { @class = "text-danger", @data_valmsg_for = "Friendly" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.review.professional, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.review.professional, new { htmlAttributes = new { @class = "form-control", Name = "Professional" } })
+            @Html.ValidationMessageFor(model => model.review.professional, "", new { @class = "text-danger", @data_valmsg_for = "Professional" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.review.knowledge, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.review.knowledge, new { htmlAttributes = new { @class = "form-control", Name = "Knowledge" } })
+            @Html.ValidationMessageFor(model => model.review.knowledge, "", new { @class = "text-danger", @data_valmsg_for = "Knowledge" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.review.doctorID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.review.doctorID, new { htmlAttributes = new { @class = "form-control", Name = "Knowledge" } })
+            @Html.ValidationMessageFor(model => model.review.doctorID, "", new { @class = "text-danger", @data_valmsg_for = "Knowledge" })
+        </div>
+    </div>
+
+    <!--
+        
+    //The following code is generating error. 
+    <div class="form-group">
+        AT-Html.LabelFor(model => model.review.doctorID, htmlAttributes: new { AT-class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            <select name="SportID">
+
+                AT-foreach (var doctor in Model.doctors)
+                {
+                    <option value="AT-doctor.doctorID">AT-doctor.fullName </option>
+                }
+
+            </select>
+
+        </div>
+    </div>
+
+        -->
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+            <ul class="nav navbar-nav navbar-right">
+                <button type="submit" class="btn btn-toolbar">@Html.ActionLink("Cancel - Back to List", "List")</button>
+            </ul>
+        </div>
+    </div>
+
+</div>
+}

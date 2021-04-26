@@ -1,0 +1,31 @@
+﻿@model team2Geraldton.Models.doctorDto
+
+@{
+    ViewBag.Title = "Delete Confirmation";
+}
+
+<h2>View</h2>
+
+<h3>Are you sure you want to delete @Model.fullName  ?</h3>
+
+
+@using (Html.BeginForm("Delete", "doctor", new { id = Model.doctorID }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-default" />
+    <ul class="nav navbar-nav navbar-right">
+        <button type="submit" class="btn btn-toolbar">@Html.ActionLink("Cancel - Back to List", "List")</button>
+    </ul>
+</div>
+
+}
+
+<!--
+<form method="POST" action="/Doctor/Delete/-AT-Model.doctorID">
+    <button class="delbutton">
+        Confirm Delete
+    </button>
+</form>
+-->

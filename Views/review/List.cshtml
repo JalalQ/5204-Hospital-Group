@@ -1,0 +1,56 @@
+﻿@model team2Geraldton.Models.ViewModels.ListReviews
+
+@{
+    ViewBag.Title = "List of Reviews";
+}
+
+<h2 class="text-center">List of reviews for doctors working at Geraldton Hospital</h2>
+
+<p class="text-center">
+    <img src="~/Content/images/review.jpg" alt="Photo by Marta Wave from Pexels" />
+</p>
+
+<p>
+    <ul class="nav navbar-nav navbar-right">
+        <button type="submit" class="btn btn-toolbar" style="font-size: 1.5em;">@Html.ActionLink("Submit New Review", "Create")</button>
+    </ul>
+</p>
+
+<div class="paginate">
+    @{
+        int PrevPage = Convert.ToInt32(ViewData["PageNum"]) - 1;
+        int NextPage = Convert.ToInt32(ViewData["PageNum"]) + 1;
+        @Html.ActionLink("Prev", "List", new { PageNum = PrevPage })
+        @ViewData["PageSummary"]
+        @Html.ActionLink("Next", "List", new { PageNum = NextPage })
+    }
+</div>
+
+<table class="table">
+
+    <tr>
+        <th>
+            Review ID
+        </th>
+        <th>
+            Review for Dr.
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var review in Model.reviews)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => review.reviewID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => review.doctorName)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = review.reviewID }) |
+                @Html.ActionLink("Delete", "DeleteConfirm", new { id = review.reviewID })
+            </td>
+        </tr>
+    }
+</table>

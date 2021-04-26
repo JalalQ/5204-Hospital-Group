@@ -1,0 +1,73 @@
+﻿@model team2Geraldton.Models.ViewModels.ShowReview
+
+@{
+    ViewBag.Title = "Detail about Review";
+}
+
+<h2>Detail Review ID # @Html.DisplayFor(model => model.review.reviewID) for  Dr @Html.DisplayFor(model => model.review.doctorName) </h2>
+
+<div>
+    <p>
+        <ul class="nav navbar-nav navbar-left">
+            <button type="submit" class="btn btn-toolbar" style="font-size: 1.5em;">@Html.ActionLink("Back to List", "List")</button>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <button type="submit" class="btn btn-secondary" style="font-size: 1.5em;">@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.review.reviewID })</button>
+        </ul>
+    </p>
+
+    <br>
+    <br>
+    <br>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.review.reviewID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.review.reviewID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.review.doctorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.review.doctorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.review.doctorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.review.doctorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.review.friendly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.review.friendly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.review.knowledge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.review.knowledge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.review.professional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.review.professional)
+        </dd>
+
+    </dl>
+</div>

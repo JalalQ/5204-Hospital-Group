@@ -1,0 +1,80 @@
+﻿@model team2Geraldton.Models.ViewModels.UpdateDoctor
+
+@{
+    ViewBag.Title = "Create New Doctor's Profile";
+}
+
+<h2>Add a New Doctor</h2>
+
+@using (Html.BeginForm())
+{
+    //This will set a hidden input field with value "_RequestVerificationToken"
+    //The doctorController Create Method will look for this token
+    //This helps secure the Create() method from being called from other pages.
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.doctor.fullName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.doctor.fullName, new { htmlAttributes = new { @class = "form-control", Name = "doctorfullName" } })
+                @Html.ValidationMessageFor(model => model.doctor.fullName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.doctor.cpsoReg, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.doctor.cpsoReg, new { htmlAttributes = new { @class = "form-control", Name = "doctorcpsoReg" } })
+                @Html.ValidationMessageFor(model => model.doctor.cpsoReg, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.doctor.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.doctor.email, new { htmlAttributes = new { @class = "form-control", Name = "doctoremail" } })
+                @Html.ValidationMessageFor(model => model.doctor.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.doctor.education, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.doctor.education, new { htmlAttributes = new { @class = "form-control", Name = "doctoreducation" } })
+                @Html.ValidationMessageFor(model => model.doctor.education, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.doctor.expertise, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.doctor.expertise, new { htmlAttributes = new { @class = "form-control", Name = "doctorexpertise" } })
+                @Html.ValidationMessageFor(model => model.doctor.expertise, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.doctor.biography, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.doctor.biography, new { htmlAttributes = new { @class = "form-control", Name = "doctorbiography" } })
+                @Html.ValidationMessageFor(model => model.doctor.biography, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <ul class="nav navbar-nav navbar-right">
+                    <button type="submit" class="btn btn-toolbar">@Html.ActionLink("Cancel - Back to List", "List")</button>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+}
+

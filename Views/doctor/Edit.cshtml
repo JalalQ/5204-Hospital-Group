@@ -1,0 +1,84 @@
+﻿@model team2Geraldton.Models.ViewModels.UpdateDoctor
+
+@{
+    ViewBag.Title = "Create New Doctor's Profile";
+}
+
+
+@using (Html.BeginForm("Edit", "Doctor", new { id = Model.doctor.doctorID}, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Update Doctor</h4>
+        <div>
+            @Html.ActionLink("Back to List", "List")
+        </div>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.doctor.doctorID, new { Name = "PlayerID" })
+        <div class="row">
+            <div class="col-md-6">
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.doctor.fullName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.doctor.fullName, new { htmlAttributes = new { @class = "form-control", Name = "doctorfullName" } })
+                        @Html.ValidationMessageFor(model => model.doctor.fullName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.doctor.cpsoReg, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.doctor.cpsoReg, new { htmlAttributes = new { @class = "form-control", Name = "doctorcpsoReg" } })
+                        @Html.ValidationMessageFor(model => model.doctor.cpsoReg, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.doctor.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.doctor.email, new { htmlAttributes = new { @class = "form-control", Name = "doctoremail" } })
+                        @Html.ValidationMessageFor(model => model.doctor.email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.doctor.education, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.doctor.education, new { htmlAttributes = new { @class = "form-control", Name = "doctoreducation" } })
+                        @Html.ValidationMessageFor(model => model.doctor.education, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.doctor.expertise, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.doctor.expertise, new { htmlAttributes = new { @class = "form-control", Name = "doctorexpertise" } })
+                        @Html.ValidationMessageFor(model => model.doctor.expertise, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.doctor.biography, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.doctor.biography, new { htmlAttributes = new { @class = "form-control", Name = "doctorbiography" } })
+                        @Html.ValidationMessageFor(model => model.doctor.biography, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Edit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

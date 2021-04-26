@@ -1,0 +1,56 @@
+﻿@model team2Geraldton.Models.ViewModels.ListDoctors
+
+@{
+    ViewBag.Title = "List of Doctors";
+}
+
+<h2 class="text-center">List of Doctors working at Geraldton Hospital</h2>
+
+<p class="text-center">
+    <img src="~/Content/images/doctor.jpg" alt="Photo by Karolina Grabowska from Pexels" />
+</p>
+
+<p>
+    <ul class="nav navbar-nav navbar-right">
+        <button type="submit" class="btn btn-toolbar" style="font-size: 1.5em;">@Html.ActionLink("Add New Doctor", "Create")</button>
+    </ul>
+</p>
+
+<div class="paginate">
+    @{
+        int PrevPage = Convert.ToInt32(ViewData["PageNum"]) - 1;
+        int NextPage = Convert.ToInt32(ViewData["PageNum"]) + 1;
+        @Html.ActionLink("Prev", "List", new { PageNum = PrevPage })
+        @ViewData["PageSummary"]
+        @Html.ActionLink("Next", "List", new { PageNum = NextPage })
+    }
+</div>
+
+<table class="table">
+
+    <tr>
+        <th>
+            CPSO Reg No.
+        </th>
+        <th>
+            Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var doctor in Model.doctors)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => doctor.cpsoReg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => doctor.fullName)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = doctor.doctorID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = doctor.doctorID })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,74 @@
+﻿@model team2Geraldton.Models.ViewModels.ShowDoctor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detail Profile of Dr @Html.DisplayFor(model => model.doctor.fullName) </h2>
+
+<div>
+    <p>
+        <ul class="nav navbar-nav navbar-right">
+            <button type="submit" class="btn btn-secondary" style="font-size: 1.5em;">@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.doctor.doctorID })</button>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-left">
+            <button type="submit" class="btn btn-toolbar" style="font-size: 1.5em;">@Html.ActionLink("Edit", "Edit", new { id = Model.doctor.doctorID })</button>
+         </ul>
+    </p>
+
+    <br>
+    <br>
+    <br>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.doctor.fullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doctor.fullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doctor.cpsoReg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doctor.cpsoReg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doctor.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doctor.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doctor.education)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doctor.education)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doctor.expertise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doctor.expertise)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doctor.biography)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.doctor.biography)
+        </dd>
+
+    </dl>
+</div>
