@@ -1,0 +1,75 @@
+﻿@model IEnumerable<News_Events_Payments.Models.Payments>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient_firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient_lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payment_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payment_amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bill_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Card_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Card_csv)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient_firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient_lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment_amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bill_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Card_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Card_csv)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Payment_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Payment_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Payment_id })
+        </td>
+    </tr>
+}
+
+</table>

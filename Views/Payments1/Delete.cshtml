@@ -1,0 +1,88 @@
+﻿@model News_Events_Payments.Models.Payments
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Payments</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient_firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient_firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient_lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient_lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment_amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment_amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bill_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bill_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Card_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Card_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Card_csv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Card_csv)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

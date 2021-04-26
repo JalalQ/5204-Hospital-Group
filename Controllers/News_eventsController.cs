@@ -15,7 +15,7 @@ namespace News_Events_Payments.Controllers
         private DataContext db = new DataContext();
 
         // GET: News_events
-        public ActionResult Index()
+       /** public ActionResult Index()
         {
             return View(db.News_Events.ToList());
         }
@@ -122,6 +122,6 @@ namespace News_Events_Payments.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }**/
     }
 }

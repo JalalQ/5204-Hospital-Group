@@ -24,14 +24,14 @@ namespace News_Events_Payments.Controllers
         // GET: api/News_eventsData/GetNews_events
         public IQueryable<News_events> GetNews_Events()
         {
-            return db.News_Events;
+            return db.News_events;
         }
 
         // GET: api/News_eventsData/GetNews_Events/{id}
         [ResponseType(typeof(News_events))]
         public IHttpActionResult GetNews_events(int id)
         {
-            News_events news_events = db.News_Events.Find(id);
+            News_events news_events = db.News_events.Find(id);
             if (news_events == null)
             {
                 return NotFound();
@@ -137,7 +137,7 @@ namespace News_Events_Payments.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.News_Events.Add(news_events);
+            db.News_events.Add(news_events);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = news_events.News_events_id }, news_events);
@@ -154,13 +154,13 @@ namespace News_Events_Payments.Controllers
         [HttpPost]
         public IHttpActionResult DeleteNews_events(int id)
         {
-            News_events news_events = db.News_Events.Find(id);
+            News_events news_events = db.News_events.Find(id);
             if (news_events == null)
             {
                 return NotFound();
             }
 
-            db.News_Events.Remove(news_events);
+            db.News_events.Remove(news_events);
             db.SaveChanges();
 
             return Ok(news_events);
@@ -177,7 +177,7 @@ namespace News_Events_Payments.Controllers
 
         private bool News_eventsExists(int id)
         {
-            return db.News_Events.Count(e => e.News_events_id == id) > 0;
+            return db.News_events.Count(e => e.News_events_id == id) > 0;
         }
     }
 }

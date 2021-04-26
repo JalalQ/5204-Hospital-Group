@@ -141,8 +141,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\News_events1DataController.cs" />
+    <Compile Include="Controllers\News_events1Controller.cs" />
     <Compile Include="Controllers\News_eventsController.cs" />
     <Compile Include="Controllers\News_eventsDataController.cs" />
+    <Compile Include="Controllers\Payments1Controller.cs" />
+    <Compile Include="Controllers\Payments1DataController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\PaymentsDataController.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,9 +212,19 @@
     <Content Include="Views\Payments\Details.cshtml" />
     <Content Include="Views\Payments\Edit.cshtml" />
     <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\List.cshtml" />
+    <Content Include="Views\Payments1\Create.cshtml" />
+    <Content Include="Views\Payments1\List.cshtml" />
+    <Content Include="Views\Payments1\Update.cshtml" />
+    <Content Include="Views\Payments1\Delete.cshtml" />
+    <Content Include="Views\News_events1\Create.cshtml" />
+    <Content Include="Views\News_events1\Update.cshtml" />
+    <Content Include="Views\News_events1\List.cshtml" />
+    <Content Include="Views\News_events1\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\News_events1Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

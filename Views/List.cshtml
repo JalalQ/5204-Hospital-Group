@@ -1,0 +1,45 @@
+﻿@model IEnumerable<News_Events_Payments.Models.News_events>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.News_events_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.News_events_content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_published)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.News_events_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.News_events_content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_published)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.News_events_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.News_events_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.News_events_id })
+        </td>
+    </tr>
+}
+
+</table>

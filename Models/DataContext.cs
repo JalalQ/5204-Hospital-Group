@@ -14,7 +14,7 @@ namespace News_Events_Payments.Models
 
 
         }
-        public DbSet<News_events> News_Events { get; set; }
+        public DbSet<News_events> News_events { get; set; }
         public DbSet<Payments> Payments { get; set; }
 
     }
