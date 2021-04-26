@@ -190,7 +190,7 @@ namespace team2Geraldton.Controllers
         //[Authorize(Roles = "Admin")]
         //Not working. addDoctor API however is working.
         // Type the following the command prompt (doctor.json should be saved on the active file-path).
-        //curl -H "Content-Type:application/json" -d @doctor.json "https://localhost:44319/api/doctorsData/AddDoctor"
+        //curl -H "Content-Type:application/json" -d @doctor.json "https://localhost:44319/api/doctorData/AddDoctor"
         public ActionResult Create(doctor DoctorInfo)
         {
             //pass along authentication credential in http request
