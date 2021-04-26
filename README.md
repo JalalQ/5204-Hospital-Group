@@ -20,7 +20,7 @@ Reference: Christine Bittle's Varsity MVP, Blog project
 
 ===============================================
 ### Sasha Srinivas 
-I have worked on the news/events feature and the payments feature. I have submitted my models, controllers and data controllers and am able to get CRUD working through my Views. My work is located in the news_events_payments branch. 
+Please find my work and a more detailed Readme file in the News_events_payments branch. 
 
 ===============================================  
 ### Simranjeet Singh 
