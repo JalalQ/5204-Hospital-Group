@@ -18,5 +18,6 @@
 * User View
 ![Screenshot (18)](https://user-images.githubusercontent.com/71792075/116030563-d0b00a80-a629-11eb-930b-a6f9784172ad.png)
 * Admin View
-![Screenshot (16)](https://user-images.githubusercontent.com/71792075/116030625-f50be700-a629-11eb-8315-cc7ed9f672c6.png)
+![Screenshot (17)](https://user-images.githubusercontent.com/71792075/116031492-cc84ec80-a62b-11eb-847a-a4460e132ebe.png)
+
 
