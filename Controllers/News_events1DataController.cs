@@ -15,6 +15,11 @@ namespace News_Events_Payments.Controllers
     public class News_events1DataController : ApiController
     {
         private DataContext db = new DataContext();
+        /// <summary>
+        /// Gets a list of news/events in the database.
+        /// </summary>
+        /// <returns>a list of news/events in the database including their id </returns>
+        /// <example>
         // GET: api/News_events1/GetNews
         public IEnumerable<News_eventsDto> GetNews()
         {
@@ -38,6 +43,11 @@ namespace News_Events_Payments.Controllers
             return News_eventsDtos;
         }
 
+        /// <summary>
+        /// Finds a news/event item based on its id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Returns a news/event item based on its id</returns>
         // GET: api/News_events1/FindNews_events/5
         [ResponseType(typeof(News_events))]
         [HttpGet]
@@ -65,7 +75,13 @@ namespace News_Events_Payments.Controllers
             //pass along data as 200 status code OK response
             return Ok(News_eventsDto);
         }
-
+         /// <summary>
+        /// Updates a news/event item based on its id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="News_events"></param>
+        /// <returns>adds updated news/event item to the database based on its id</returns>
+        // POST: api/News_events1/UpdateNews_events/5
         [ResponseType(typeof(void))]
         [HttpPost]
 
@@ -101,6 +117,12 @@ namespace News_Events_Payments.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        /// <summary>
+        /// Adds a news/event item to the database
+        /// </summary>
+        /// <param name="News_events"></param>
+        /// <returns>If news/event info is successfully filled out it will be added to the database</returns>
+        // POST: api/News_events1/AddNews_events
 
         [ResponseType(typeof(News_events))]
         [HttpPost]
@@ -117,6 +139,13 @@ namespace News_Events_Payments.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = news_events.News_events_id }, news_events);
         }
+        
+        /// <summary>
+        /// Deletes a news/event item based on its id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Deletes news/event item from database</returns>
+        // POST: api/News_events1/DeleteNews_events/5
 
         [HttpPost]
 
@@ -147,103 +176,5 @@ namespace News_Events_Payments.Controllers
         {
             return db.News_events.Count(e => e.News_events_id == id) > 0;
         }
-
-
-
-
-
-        /**[ResponseType(typeof(News_events))]
-        public IHttpActionResult DeleteNews_events(int id)
-        {
-            News_events news_events = db.News_Events.Find(id);
-            if (news_events == null)
-            {
-                return NotFound();
-            }
-
-
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool News_eventsExists(int id)
-        {
-            return db.News_Events.Count(e => e.News_events_id == id) > 0;
-        }
-
-    
-
-        // GET: api/News_events1
-        /**public IQueryable<News_events> GetNews_Events()
-        {
-            return db.News_Events;
-        }
-
-        // GET: api/News_events1/5
-        [ResponseType(typeof(News_events))]
-        public IHttpActionResult GetNews_events(int id)
-        {
-            News_events news_events = db.News_Events.Find(id);
-            if (news_events == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(news_events);
-        }
-
-        
-
-        // POST: api/News_events1
-        [ResponseType(typeof(News_events))]
-        public IHttpActionResult PostNews_events(News_events news_events)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.News_Events.Add(news_events);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = news_events.News_events_id }, news_events);
-        }
-
-        // DELETE: api/News_events1/5
-        [ResponseType(typeof(News_events))]
-        public IHttpActionResult DeleteNews_events(int id)
-        {
-            News_events news_events = db.News_Events.Find(id);
-            if (news_events == null)
-            {
-                return NotFound();
-            }
-
-            db.News_Events.Remove(news_events);
-            db.SaveChanges();
-
-            return Ok(news_events);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool News_eventsExists(int id)
-        {
-            return db.News_Events.Count(e => e.News_events_id == id) > 0;
-        }**/
     }
 }
