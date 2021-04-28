@@ -4,7 +4,7 @@
 - [x] Users can see information about different staff members of the hospital including their names, email, contact, position and the department they belong. Only Admin can Create, update and delete the staff members from the website.
 - [x] Added Pagination
 - [x] Used Viewmodels to display data
-- [x] my create feature worked fine for staff feature but when I connected it to department table its creating staff member but sendnd      null values into the database .I used curl command, debug.writeline stragies but it keep giving me error.So i added data manually.  
+- [x] Created Department table to get the list of department for hospital staff.
 * User View
 ![Screenshot (3)](https://user-images.githubusercontent.com/71792075/116010129-30d38c00-a5eb-11eb-8f8d-a255586e26b0.png)
 * Admin View
@@ -20,4 +20,7 @@
 * Admin View
 ![Screenshot (17)](https://user-images.githubusercontent.com/71792075/116031492-cc84ec80-a62b-11eb-847a-a4460e132ebe.png)
 
+### Debugging Strategy
+* I used curl command to find out errors
+* Debug.writeline to check the small piece of code
 
