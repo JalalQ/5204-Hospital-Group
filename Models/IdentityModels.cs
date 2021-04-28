@@ -28,6 +28,7 @@ namespace team2Geraldton.Models
         public DbSet<Post> Posts { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<JobApplication> JobApplications { get; set; }
         public static team2GeraldtonDbContext Create()
         {
             return new team2GeraldtonDbContext();

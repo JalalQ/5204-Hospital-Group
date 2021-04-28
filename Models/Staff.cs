@@ -29,19 +29,24 @@ namespace team2Geraldton.Models
     public class StaffDto
     {
         public int StaffId { get; set; }
+        [Required]
         [DisplayName("First Name")]
         public string FirstName { get; set; }
+        [Required]
         [DisplayName("Last Name")]
         public string LastName { get; set; }
+        [Required]
+        [RegularExpression(".+\\@.+\\..+",ErrorMessage ="Please entewr valid Email")]
         [DisplayName("Email")]
         public string Email { get; set; }
+        [Required]
         [DisplayName("Contact")]
         public string Contact { get; set; }
+        [Required]
         [DisplayName("Position")]
         public string Position { get; set; }
+        [Required]
         [DisplayName("Department")]
         public int DepartmentId { get; set; }
-
     }
-
 }

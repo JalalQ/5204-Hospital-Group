@@ -341,8 +341,14 @@ C:\Users\joban\source\repos\Hospital-Project-Copy\bin\Microsoft.Owin.Security.OA
 C:\Users\joban\source\repos\Hospital-Project-Copy\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.csprojAssemblyReference.cache
 C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.Migrations.postandstaff.resources
+C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.Migrations.validation.resources
+C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.Migrations.validations.resources
 C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.csproj.GenerateResource.cache
 C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.csproj.CoreCompileInputs.cache
 C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.csproj.CopyComplete
 C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.dll
 C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.pdb
+C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.Migrations.jobapplication.resources
+C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.Migrations.emailvalidate.resources
+C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.Migrations.emailvalidates.resources
+C:\Users\joban\source\repos\Hospital-Project-Copy\obj\Debug\team2Geraldton.Migrations.datatypechanged.resources

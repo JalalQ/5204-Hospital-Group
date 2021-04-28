@@ -184,6 +184,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DepartmentDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobApplicationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\PostDataController.cs" />
@@ -195,6 +196,30 @@
     <Compile Include="Migrations\202104232345089_postandstaff.cs" />
     <Compile Include="Migrations\202104232345089_postandstaff.Designer.cs">
       <DependentUpon>202104232345089_postandstaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104281505323_validation.cs" />
+    <Compile Include="Migrations\202104281505323_validation.Designer.cs">
+      <DependentUpon>202104281505323_validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104281510248_validations.cs" />
+    <Compile Include="Migrations\202104281510248_validations.Designer.cs">
+      <DependentUpon>202104281510248_validations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104281540517_jobapplication.cs" />
+    <Compile Include="Migrations\202104281540517_jobapplication.Designer.cs">
+      <DependentUpon>202104281540517_jobapplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104281546312_emailvalidate.cs" />
+    <Compile Include="Migrations\202104281546312_emailvalidate.Designer.cs">
+      <DependentUpon>202104281546312_emailvalidate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104281550345_emailvalidates.cs" />
+    <Compile Include="Migrations\202104281550345_emailvalidates.Designer.cs">
+      <DependentUpon>202104281550345_emailvalidates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104281631012_datatype changed.cs" />
+    <Compile Include="Migrations\202104281631012_datatype changed.Designer.cs">
+      <DependentUpon>202104281631012_datatype changed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -283,6 +308,11 @@
     <Content Include="Views\Department\Details.cshtml" />
     <Content Include="Views\Staff\List.cshtml" />
     <Content Include="Views\Staff\Edit.cshtml" />
+    <Content Include="Views\JobApplications\Create.cshtml" />
+    <Content Include="Views\JobApplications\Delete.cshtml" />
+    <Content Include="Views\JobApplications\Details.cshtml" />
+    <Content Include="Views\JobApplications\Edit.cshtml" />
+    <Content Include="Views\JobApplications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,6 +333,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104232345089_postandstaff.resx">
       <DependentUpon>202104232345089_postandstaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104281505323_validation.resx">
+      <DependentUpon>202104281505323_validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104281510248_validations.resx">
+      <DependentUpon>202104281510248_validations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104281540517_jobapplication.resx">
+      <DependentUpon>202104281540517_jobapplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104281546312_emailvalidate.resx">
+      <DependentUpon>202104281546312_emailvalidate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104281550345_emailvalidates.resx">
+      <DependentUpon>202104281550345_emailvalidates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104281631012_datatype changed.resx">
+      <DependentUpon>202104281631012_datatype changed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
