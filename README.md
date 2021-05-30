@@ -36,7 +36,7 @@ Learnings: I am working on Job Posting feature and Hospital Staff Directory feat
 ===============================================
 ### Jalaluddin Qureshi
 Feature: Doctor CRUD
-Branch Location: https://github.com/sasha-s-07/Hospital-Project/tree/Dr-Review
+Branch Location: https://github.com/JalalQ/5204-Hospital-Group/tree/Dr-Review
 
 I worked on the Doctor-Review Feature. A detailed documentation of my feature is given on my branch README file.
 
